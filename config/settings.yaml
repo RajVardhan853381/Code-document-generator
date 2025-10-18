@@ -1,0 +1,258 @@
+# Application Settings
+app:
+  name: "Universal Code Documentation Writer"
+  version: "1.0.0"
+  description: "AI-powered multi-language code documentation generator"
+  debug: false
+
+# Language Support Configuration
+languages:
+  tier1:
+    - python
+    - javascript
+    - typescript
+    - java
+    - csharp
+    - go
+    - php
+    - ruby
+    - cpp
+  
+  tier2:
+    - rust
+    - swift
+    - kotlin
+    - dart
+    - scala
+    - r
+  
+  tier3:
+    - haskell
+    - clojure
+    - elixir
+    - fsharp
+    - lua
+    - perl
+
+# Documentation Format Mapping
+documentation_formats:
+  python:
+    default: "google"
+    supported: ["google", "sphinx", "numpy"]
+  
+  javascript:
+    default: "jsdoc"
+    supported: ["jsdoc"]
+  
+  typescript:
+    default: "jsdoc"
+    supported: ["jsdoc", "tsdoc"]
+  
+  java:
+    default: "javadoc"
+    supported: ["javadoc"]
+  
+  csharp:
+    default: "xml"
+    supported: ["xml"]
+  
+  go:
+    default: "godoc"
+    supported: ["godoc"]
+  
+  php:
+    default: "phpdoc"
+    supported: ["phpdoc"]
+  
+  ruby:
+    default: "yard"
+    supported: ["yard", "rdoc"]
+  
+  cpp:
+    default: "doxygen"
+    supported: ["doxygen"]
+  
+  rust:
+    default: "rustdoc"
+    supported: ["rustdoc"]
+  
+  swift:
+    default: "swift_docc"
+    supported: ["swift_docc"]
+  
+  kotlin:
+    default: "kdoc"
+    supported: ["kdoc"]
+
+# Tree-sitter Parser Configuration
+tree_sitter:
+  parser_path: "./parsers"
+  cache_enabled: true
+  cache_size_mb: 100
+  
+  languages:
+    python: "tree-sitter-python"
+    javascript: "tree-sitter-javascript"
+    typescript: "tree-sitter-typescript"
+    java: "tree-sitter-java"
+    csharp: "tree-sitter-c-sharp"
+    go: "tree-sitter-go"
+    php: "tree-sitter-php"
+    ruby: "tree-sitter-ruby"
+    cpp: "tree-sitter-cpp"
+    rust: "tree-sitter-rust"
+    swift: "tree-sitter-swift"
+    kotlin: "tree-sitter-kotlin"
+
+# LLM Configuration
+llm:
+  providers:
+    gemini:
+      model: "gemini-2.0-flash"
+      temperature: 0.3
+      max_tokens: 2048
+      timeout: 30
+      retry_attempts: 3
+      retry_delay: 2
+    
+    openai:
+      model: "gpt-4-turbo-preview"
+      temperature: 0.3
+      max_tokens: 2048
+      timeout: 30
+      retry_attempts: 3
+      retry_delay: 2
+  
+  prompt_templates:
+    function_analysis: "prompts/function_analysis.txt"
+    class_analysis: "prompts/class_analysis.txt"
+    readme_generation: "prompts/readme_generation.txt"
+    docstring_generation: "prompts/docstring_generation.txt"
+
+# Processing Configuration
+processing:
+  max_file_size_mb: 10
+  max_files_per_batch: 100
+  parallel_processing: true
+  max_workers: 4
+  timeout_seconds: 300
+  
+  exclude_patterns:
+    - "node_modules/**"
+    - "venv/**"
+    - ".git/**"
+    - "__pycache__/**"
+    - "*.min.js"
+    - "*.bundle.js"
+    - "dist/**"
+    - "build/**"
+
+# Output Configuration
+output:
+  preserve_structure: true
+  create_backup: true
+  overwrite_existing: false
+  include_timestamp: true
+  
+  export_formats:
+    - "markdown"
+    - "html"
+    - "json"
+
+# Quality Scoring
+quality:
+  enabled: true
+  min_score_threshold: 0.7
+  
+  criteria:
+    completeness_weight: 0.3
+    accuracy_weight: 0.4
+    format_compliance_weight: 0.3
+
+# README Generation
+readme:
+  sections:
+    - "overview"
+    - "architecture"
+    - "setup"
+    - "usage"
+    - "api"
+    - "contributing"
+    - "license"
+  
+  include_badges: true
+  include_toc: true
+  include_examples: true
+
+# Performance Targets
+performance:
+  small_repo_max_seconds: 90    # 50 files
+  medium_repo_max_seconds: 180   # 100 files
+  large_repo_max_seconds: 600    # 500 files
+  
+  language_detection_accuracy: 0.90
+  documentation_quality: 0.85
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
+  max_size_mb: 10
+  backup_count: 5
+  
+  loggers:
+    - name: "app.core"
+      level: "DEBUG"
+    - name: "app.api"
+      level: "INFO"
+    - name: "app.llm"
+      level: "INFO"
+
+# Security Configuration
+security:
+  enable_rate_limiting: true
+  rate_limit_per_minute: 60
+  rate_limit_per_hour: 1000
+  
+  allowed_file_extensions:
+    - ".py"
+    - ".js"
+    - ".ts"
+    - ".java"
+    - ".cs"
+    - ".go"
+    - ".php"
+    - ".rb"
+    - ".cpp"
+    - ".hpp"
+    - ".rs"
+    - ".swift"
+    - ".kt"
+  
+  max_upload_size_mb: 50
+
+# Database Configuration
+database:
+  pool_size: 5
+  max_overflow: 10
+  pool_timeout: 30
+  pool_recycle: 3600
+
+# Cache Configuration
+cache:
+  enabled: true
+  ttl_seconds: 3600
+  max_size_mb: 500
+  
+  strategy: "lru"  # lru, lfu, fifo
+
+# Feature Flags
+features:
+  cross_language_analysis: true
+  readme_generation: true
+  quality_scoring: false
+  batch_processing: true
+  api_documentation: true
+  code_examples: true
+  test_generation: false

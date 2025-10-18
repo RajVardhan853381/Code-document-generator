@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  api:
+    build: .
+    container_name: code-doc-api
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/code_doc_db
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      - redis
+    command: uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
+  
+  # Streamlit Web Interface
+  web:
+    build: .
+    container_name: code-doc-web
+    ports:
+      - "8501:8501"
+    environment:
+      - ENVIRONMENT=production
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+    depends_on:
+      - api
+    command: streamlit run app/web/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+  
+  # PostgreSQL Database
+  db:
+    image: postgres:14-alpine
+    container_name: code-doc-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=code_doc_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: code-doc-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
