@@ -1,0 +1,51 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           🚀 QUICK UPLOAD COMMANDS - RajVardhan853381
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: CREATE REPOSITORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open in browser: https://github.com/new
+
+Name: ai-code-documentation-tool
+Description: 🤖 AI-powered code documentation generator
+Visibility: Public
+DON'T check any boxes
+
+Click: Create repository
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 2: RUN THESE 3 COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cd "/media/raj/Raj/Code Documentation Tool"
+
+git remote add origin https://github.com/RajVardhan853381/ai-code-documentation-tool.git
+
+git push -u origin main
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 3: AUTHENTICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+When git asks:
+
+Username: RajVardhan853381
+Password: [Get from https://github.com/settings/tokens]
+
+To get token:
+1. Go to: https://github.com/settings/tokens
+2. Generate new token (classic)
+3. Name: Code Documentation Tool
+4. Check: repo
+5. Generate token
+6. Copy and paste as password
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DONE! Your repository will be at:
+https://github.com/RajVardhan853381/ai-code-documentation-tool
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
